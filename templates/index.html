@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}}
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<!-- Product Section Start -->
+<section class="product-section">
+    <div class="container-fluid-lg">
+        <div class="row g-sm-4 g-3">
+            <div class="col-xxl-3 col-xl-4 d-none d-xl-block">
+                <div class="p-sticky">
+                    <div class="category-menu">
+                        <h3>Category</h3>
+                        <ul>
+                            {% for cat in category %}
+                            <li>
+                                <div class="category-list">
+                                    <h5>
+                                        <a href="/?cata={{cat.id}}">{{cat.name}}</a>
+                                    </h5>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xxl-9 col-xl-8">
+                <div class="section-b-space">
+                    <div class="product-border border-row overflow-hidden">
+                        <div class="product-box-slider no-arrow">
+                            {% for prod in products %}
+                            <div class="product-box">
+                                <div class="product-image">
+                                    <a href="{% url 'prod' prod.id %}">
+                                        <img src="{{prod.image.url}}"
+                                             class="img-fluid blur-up lazyload" alt="">
+                                    </a>
+                                    <ul class="product-option">
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top"
+                                            title="View">
+                                            <a href="javascript:void(0)" data-bs-toggle="modal"
+                                               data-bs-target="#view">
+                                                <i data-feather="eye"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top"
+                                            title="Compare">
+                                            <a href="compare.html">
+                                                <i data-feather="refresh-cw"></i>
+                                            </a>
+                                        </li>
+
+                                        <li data-bs-toggle="tooltip" data-bs-placement="top"
+                                            title="Wishlist">
+                                            <a href="wishlist.html" class="notifi-wishlist">
+                                                <i data-feather="heart"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="product-detail">
+                                        <h6 class="name">{{prod.name}}</h6>
+
+                                    <h5 class="sold text-content">
+                                        <span class="theme-color price">{{prod.price}}</span>
+                                        <del>{{prod.discount}}</del>
+                                    </h5>
+
+                                    <div class="product-rating mt-sm-2 mt-1">
+                                        <ul class="rating">
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star"></i>
+                                            </li>
+                                        </ul>
+
+                                        <h6 class="theme-color">In Stock</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Product Section End -->
+{% endblock %}

@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}}
+{% block title %}Product{% endblock %}
+
+{% block body %}
+<!-- Product Left Sidebar Start -->
+    <section class="product-section">
+        {% for p in pro %}
+        <div class="container-fluid-lg">
+            <div class="row">
+                <div class="col-xxl-9 col-xl-8 col-lg-7 wow fadeInUp">
+                    <div class="row g-4">
+                        <div class="col-xl-6 wow fadeInUp">
+                            <div class="product-left-box">
+                                <div class="row g-sm-4 g-2">
+                                    <div class="col-12">
+                                        <div class="product-main no-arrow">
+                                            <div>
+                                                <div class="slider-image">
+                                                    <img src="{{p.image.url}}" id="img-1" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-6 wow fadeInUp">
+                            <div class="right-box-contain">
+                                <h2 class="name">{{p.name}}</h2>
+                                <div class="price-rating">
+                                    <h3 class="theme-color price">{{p.price}} <del class="text-content">{{p.discount}}</del></h3>
+                                    <div class="product-rating custom-rate">
+                                        <ul class="rating">
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star" class="fill"></i>
+                                            </li>
+                                            <li>
+                                                <i data-feather="star"></i>
+                                            </li>
+                                        </ul>
+                                        <span class="review">23 Customer Review</span>
+                                    </div>
+                                </div>
+
+                                <div class="procuct-contain">
+                                    <p>{{p.description}}
+                                    </p>
+                                </div>
+
+                                <div class="note-box product-packege">
+                                    <button onclick="location.href = 'cart.html';"
+                                        class="btn btn-md bg-dark cart-button text-white w-100">Add To Cart</button>
+                                </div>
+
+                                <div class="paymnet-option">
+                                    <div class="product-title">
+                                        <h4>Guaranteed Safe Checkout</h4>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void(0)">
+                                                <img src="{% static 'assets/images/product/payment/1.svg' %}"
+                                                    class="blur-up lazyload" alt="">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">
+                                                <img src="{% static 'assets/images/product/payment/2.svg' %}"
+                                                    class="blur-up lazyload" alt="">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">
+                                                <img src="{% static 'assets/images/product/payment/3.svg' %}"
+                                                    class="blur-up lazyload" alt="">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">
+                                                <img src="{% static 'assets/images/product/payment/4.svg' %}"
+                                                    class="blur-up lazyload" alt="">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0)">
+                                                <img src="{% static 'assets/images/product/payment/5.svg' %}"
+                                                    class="blur-up lazyload" alt="">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+    <!-- Product Left Sidebar End -->
+{% endblock %}
